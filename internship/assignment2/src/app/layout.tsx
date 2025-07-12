@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quote Generator",
-  description: "A basic Application that generates basic qoutes.",
+  title: "My Blog Summarizer",
+  description: "A basic Application that extracts blog data from a wbesite url and then summarizes it.",
 };
 
 export default function RootLayout({

@@ -1,5 +1,4 @@
 const dictionary: Record<string, string> = {
-  // Technology
   "technology": "ٹیکنالوجی",
   "internet": "انٹرنیٹ",
   "world": "دنیا",
@@ -15,8 +14,6 @@ const dictionary: Record<string, string> = {
   "digital": "ڈیجیٹل",
   "virtual": "ورچوئل",
   "network": "نیٹ ورک",
-
-  // General
   "information": "معلومات",
   "knowledge": "علم",
   "system": "نظام",
@@ -32,8 +29,6 @@ const dictionary: Record<string, string> = {
   "modern": "جدید",
   "traditional": "روایتی",
   "quality": "معیار",
-
-  // Blogging
   "article": "مضمون",
   "blog": "بلاگ",
   "content": "مواد",
@@ -49,8 +44,6 @@ const dictionary: Record<string, string> = {
   "trending": "مقبول",
   "popular": "مقبول",
   "viral": "وائرل",
-
-  // Time
   "time": "وقت",
   "minute": "منٹ",
   "hour": "گھنٹہ",
@@ -65,8 +58,6 @@ const dictionary: Record<string, string> = {
   "soon": "جلد",
   "early": "جلدی",
   "late": "دیر",
-
-  // Business
   "business": "کاروبار",
   "market": "مارکیٹ",
   "product": "پروڈکٹ",
@@ -81,8 +72,6 @@ const dictionary: Record<string, string> = {
   "failure": "ناکامی",
   "competition": "مقابلہ",
   "advertisement": "اشتہار",
-
-  // Social
   "people": "لوگ",
   "friend": "دوست",
   "family": "خاندان",
@@ -93,8 +82,6 @@ const dictionary: Record<string, string> = {
   "communication": "مواصلات",
   "meeting": "ملاقات",
   "event": "تقریب",
-
-  // Education
   "education": "تعلیم",
   "school": "اسکول",
   "college": "کالج",
@@ -105,8 +92,6 @@ const dictionary: Record<string, string> = {
   "research": "تحقیق",
   "exam": "امتحان",
   "result": "نتیجہ",
-
-  // Verbs
   "learn": "سیکھیں",
   "work": "کام",
   "create": "تخلیق کریں",
@@ -116,9 +101,7 @@ const dictionary: Record<string, string> = {
   "continue": "جاری رکھیں",
   "improve": "بہتر بنائیں",
   "grow": "بڑھیں",
-  "help": "مدد کریں",
-  
-  // Adjectives
+  "help": "مدد کریں",  
   "good": "اچھا",
   "bad": "برا",
   "new": "نیا",
@@ -129,7 +112,6 @@ const dictionary: Record<string, string> = {
   "difficult": "مشکل",
   "important": "اہم",
   "interesting": "دلچسپ",
-
   "handbook": "رہنما کتاب",
   "working": "کام کرنا",
   "rules": "قوانین",
