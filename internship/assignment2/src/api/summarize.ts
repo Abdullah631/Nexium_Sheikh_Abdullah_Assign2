@@ -2,8 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { scrapeBlogText } from '@/lib/scrapper';
 import { generateStaticSummary } from '@/lib/summarizer';
 import { translateToUrdu } from '@/lib/translator';
-import { saveFullText } from '@/lib/mongodb';
-import { saveToSupabase } from '@/lib/supabase/client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -18,13 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const fullText = await scrapeBlogText(url);
-
-    const summary = generateStaticSummary(fullText);
-    const urduSummary = translateToUrdu(summary);
-
-    await saveFullText(url, fullText);
-
-    await saveToSupabase(url, summary, urduSummary);
+    const summary = generateStaticSummary(fullText); // Dummy summary
+    const urduSummary = translateToUrdu(summary); // Simulated translation
 
     return res.status(200).json({
       fullText,
@@ -32,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       urduSummary
     });
   } catch (error) {
-    console.error('Summarization error:', error);
-    return res.status(500).json({ error: 'Failed to summarize and save data.' });
+    console.error(error);
+    return res.status(500).json({ error: 'Failed to summarize' });
   }
 }
