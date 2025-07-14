@@ -1,7 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { scrapeBlogText } from '@/lib/scrapper';
-import { generateStaticSummary } from '@/lib/summarizer';
-import { translateToUrdu } from '@/lib/translator';
+import { scrapeBlogText, generateSummaryWithGemini, translateToUrduWithGemini } from '@/lib/summarizer';
 import { saveFullText } from '@/lib/mongodb';
 import { saveToSupabase } from '@/lib/supabase/client';
 
@@ -18,21 +16,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const fullText = await scrapeBlogText(url);
+    const summary = await generateSummaryWithGemini(fullText);
+    const urduSummary = await translateToUrduWithGemini(summary);
 
-    const summary = generateStaticSummary(fullText);
-    const urduSummary = translateToUrdu(summary);
+    let mongoStatus = 'saved';
+    let supabaseStatus = 'saved';
 
-    await saveFullText(url, fullText);
+    try {
+      await saveFullText(url, fullText);
+    } catch (err) {
+      console.error('MongoDB Save Error:', err);
+      mongoStatus = 'failed';
+    }
 
-    await saveToSupabase(url, summary, urduSummary);
+    try {
+      await saveToSupabase(url, summary, urduSummary);
+    } catch (err) {
+      console.error('Supabase Save Error:', err);
+      supabaseStatus = 'failed';
+    }
 
     return res.status(200).json({
       fullText,
       summary,
-      urduSummary
+      urduSummary,
+      saveStatus: {
+        mongodb: mongoStatus,
+        supabase: supabaseStatus,
+      },
     });
   } catch (error) {
-    console.error('Summarization error:', error);
-    return res.status(500).json({ error: 'Failed to summarize and save data.' });
+    console.error(error);
+    return res.status(500).json({ error: 'Failed to summarize' });
   }
 }
