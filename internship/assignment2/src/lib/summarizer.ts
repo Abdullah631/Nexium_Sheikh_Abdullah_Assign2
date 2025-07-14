@@ -7,7 +7,7 @@ if (!process.env.GOOGLE_API_KEY) {
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.5-pro",
-  systemInstruction : `You are An expert in summarizing the blogs and when user sends you a text to summarize you summarize it properly. Don't use any hindi words in case of urdu summarizing.`
+  systemInstruction : `You are An expert in summarizing the blogs and when user sends you a text to summarize you summarize it properly.`
 });
 
 export async function scrapeBlogText(url: string): Promise<string> {
