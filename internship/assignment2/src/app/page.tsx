@@ -66,8 +66,12 @@ export default function Home() {
   return (
     <div className="min-h-screen p-4 md:p-8">
       <header className="flex flex-col items-center text-center mb-8 max-w-7xl mx-auto space-y-2">
-        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
-          📝 My AI Blog Summarizer 📝
+        <h1 className="text-3xl font-bold flex items-center gap-2">
+          <span>📝</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
+            My AI Blog Summarizer
+          </span>
+          <span>📝</span>
         </h1>
         <div className="flex items-center space-x-2">
           <span className="text-muted-foreground">
