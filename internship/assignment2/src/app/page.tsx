@@ -67,7 +67,7 @@ export default function Home() {
     <div className="min-h-screen p-4 md:p-8">
       <header className="flex flex-col items-center text-center mb-8 max-w-7xl mx-auto space-y-2">
         <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
-          AI Blog Summarizer
+          📝 My AI Blog Summarizer 📝
         </h1>
         <div className="flex items-center space-x-2">
           <span className="text-muted-foreground">
@@ -170,7 +170,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-12 text-center text-muted text-sm">
-        <p>AI Blog Summarizer</p>
+        <p>📝 My AI Blog Summarizer 📝</p>
         <p>All Rights Reserved</p>
         <p>Created by Sheikh Abdullah Arshad</p>
       </footer>
