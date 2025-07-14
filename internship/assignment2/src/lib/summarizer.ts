@@ -44,7 +44,7 @@ export async function generateSummaryWithGemini(fullText: string): Promise<strin
 }
 
 export async function translateToUrduWithGemini(englishSummary: string): Promise<string> {
-  const prompt = `Translate the following into Urdu without using any hindi word:\n\n${englishSummary}`;
+  const prompt = `Translate the following into Urdu and don't use hindi words. Make sure every word of the translation is in Urdu:\n\n${englishSummary}`;
   const maxRetries = 3;
   let attempt = 0;
 
